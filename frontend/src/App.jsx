@@ -16,7 +16,7 @@ export default function App() {
 
   return (
     <div style={{ maxWidth: 720, margin: "40px auto", padding: 16 }}>
-      <h1>Posts CTIT</h1>
+      <h1>Posts TCIT</h1>
 
       <PostFilter />
 

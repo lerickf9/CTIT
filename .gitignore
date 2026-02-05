@@ -1,0 +1,32 @@
+# ======== Node ========
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ======== Vite / Frontend ========
+dist/
+dist-ssr/
+.vite/
+.cache/
+coverage/
+*.log
+
+# ======== React ========
+build/
+
+# ======== Backend ========
+.env
+.env.local
+.env.*.local
+
+# ======== OS ========
+.DS_Store
+Thumbs.db
+
+# ======== IDEs ========
+.vscode/
+.idea/
+*.swp
+

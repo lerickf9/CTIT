@@ -91,8 +91,8 @@ npm install
 PGHOST=localhost
 PGPORT=5432
 PGUSER=postgres
-PGPASSWORD=TU_CONTRASEÑA
-PGDATABASE=tcit_posts
+PGPASSWORD=*****
+PGDATABASE=****
 PORT=3000
 ```
 
@@ -167,23 +167,6 @@ Desde la interfaz puedes:
 
 ---
 
-## 📂 Estructura del Frontend (resumen)
-
-```
-src/
-├── app/store.js
-├── features/posts/
-│   ├── postsSlice.js
-│   ├── postsThunks.js
-│   └── postsSelectors.js
-├── components/
-│   ├── PostForm.jsx
-│   ├── PostFilter.jsx
-│   └── PostList.jsx
-└── App.jsx
-```
-
----
 
 ## 👤 Autor
 

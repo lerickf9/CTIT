@@ -15,7 +15,7 @@ La aplicación implementa un **CRUD de Posts**, donde cada post contiene:
 Características clave del sistema:
 
 * Frontend desarrollado en **React + Redux (Redux Toolkit) con Vite**
-* Backend en **Node.js puro (sin Express)** con servidor HTTP nativo
+* Backend en **Node.js ** con servidor HTTP nativo
 * Base de datos **PostgreSQL**
 * Regla de evaluación cumplida:
   👉 **La lista completa de posts (`GET /posts`) se consume solo UNA vez al cargar la vista.**
@@ -39,15 +39,6 @@ CTIT/
 
 ---
 
-## 🛠️ Requisitos previos
-
-Antes de ejecutar el proyecto, asegúrate de tener instalado:
-
-* **Node.js 20 LTS (recomendado)**
-* **PostgreSQL**
-* **Git**
-
----
 
 ## 🗄️ Paso 1 — Configurar la Base de Datos (PostgreSQL)
 
@@ -55,7 +46,7 @@ Antes de ejecutar el proyecto, asegúrate de tener instalado:
 2. Crea una base de datos llamada:
 
 ```
-tcit_posts
+*****
 ```
 
 3. Abre el *Query Tool* y ejecuta:
@@ -95,8 +86,6 @@ PGPASSWORD=*****
 PGDATABASE=****
 PORT=3000
 ```
-
-> ⚠️ Este archivo **no se sube a GitHub** (está en `.gitignore`).
 
 ### 4) Levanta el servidor:
 
@@ -151,9 +140,6 @@ Desde la interfaz puedes:
 * 🔍 **Filtrar por Nombre** (sin llamadas al backend)
 * 📋 **Listar posts desde PostgreSQL**
 * 🗑️ **Eliminar posts**
-* 📡 Ver en la pestaña *Network* que:
-
-  * Solo hay **UNA llamada GET al cargar la página**
 
 ---
 
@@ -171,8 +157,7 @@ Desde la interfaz puedes:
 ## 👤 Autor
 
 **Erick Fuentes**
-Desarrollador en formación — enfoque en Backend y Arquitectura de Software
-📍 Chile
+Desarrollador Junior — enfoque en Backend y Arquitectura de Software
 
 ---
 

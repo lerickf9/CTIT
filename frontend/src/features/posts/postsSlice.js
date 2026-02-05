@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchPosts } from "./postsThunks";
+import { fetchPosts, createPost, deletePost } from "./postsThunks";
 
 const initialState = {
   items: [],
@@ -20,6 +20,7 @@ const postsSlice = createSlice({
     builder
       .addCase(fetchPosts.pending, (state) => {
         state.status = "loading";
+        state.error = null;
       })
       .addCase(fetchPosts.fulfilled, (state, action) => {
         state.status = "succeeded";
@@ -27,7 +28,24 @@ const postsSlice = createSlice({
       })
       .addCase(fetchPosts.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.error.message;
+        state.error = action.error?.message ?? "Error";
+      })
+
+      
+      .addCase(createPost.fulfilled, (state, action) => {
+        state.items.unshift(action.payload);
+      })
+      .addCase(createPost.rejected, (state, action) => {
+        state.error = action.error?.message ?? "Error creando post";
+      })
+
+      
+      .addCase(deletePost.fulfilled, (state, action) => {
+        const deletedId = action.payload?.id;
+        state.items = state.items.filter((p) => p.id !== deletedId);
+      })
+      .addCase(deletePost.rejected, (state, action) => {
+        state.error = action.error?.message ?? "Error eliminando post";
       });
   },
 });

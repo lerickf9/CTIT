@@ -20,16 +20,8 @@ export default function PostForm() {
 
   return (
     <form onSubmit={onSubmit} style={{ display: "flex", gap: 8, marginBottom: 12 }}>
-      <input
-        value={Nombre}
-        onChange={(e) => setNombre(e.target.value)}
-        placeholder="Nombre"
-      />
-      <input
-        value={Descripcion}
-        onChange={(e) => setDescripcion(e.target.value)}
-        placeholder="Descripcion"
-      />
+      <input value={Nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Nombre" />
+      <input value={Descripcion} onChange={(e) => setDescripcion(e.target.value)} placeholder="Descripcion" />
       <button type="submit">Crear</button>
     </form>
   );

@@ -9,15 +9,43 @@ export default function PostList() {
   if (posts.length === 0) return <p>No hay posts.</p>;
 
   return (
-    <ul style={{ paddingLeft: 16 }}>
-      {posts.map((p) => (
-        <li key={p.id} style={{ marginBottom: 8 }}>
-          <b>{p.Nombre}</b> — {p.Descripcion}{" "}
-          <button onClick={() => dispatch(deletePost(p.id))}>
-            Eliminar
-          </button>
-        </li>
-      ))}
-    </ul>
+    <div style={{ marginBottom: "32px" }}>
+      <table
+        style={{
+          width: "100%",
+          borderCollapse: "collapse",
+          marginTop: 16,
+        }}
+      >
+        <thead>
+          <tr style={{ backgroundColor: "#0c0c0c" }}>
+            <th style={cellStyle}>Nombre</th>
+            <th style={cellStyle}>Descripción</th>
+            <th style={cellStyle}>Acción</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {posts.map((p) => (
+            <tr key={p.id}>
+              <td style={cellStyle}>{p.Nombre}</td>
+              <td style={cellStyle}>{p.Descripcion}</td>
+              <td style={cellStyle}>
+                <button onClick={() => dispatch(deletePost(p.id))}>
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
+}
+
+const cellStyle = {
+  border: "1px solid #ccc",
+  padding: "8px",
+  textAlign: "left",
+
 }

@@ -16,15 +16,15 @@ export default function App() {
 
   return (
     <div style={{ maxWidth: 720, margin: "40px auto", padding: 16 }}>
-      <h1>Posts</h1>
+      <h1>Posts CTIT</h1>
 
-      <PostForm />
       <PostFilter />
 
       {status === "loading" && <p>Cargando...</p>}
       {status === "failed" && <p style={{ color: "red" }}>{error}</p>}
-
+      
       <PostList />
+      <PostForm />
     </div>
   );
 }

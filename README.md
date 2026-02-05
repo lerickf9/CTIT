@@ -1,4 +1,4 @@
-# 📌 CTIT — Challenge React + Redux + Node + PostgreSQL
+# 📌 TCIT — Challenge React + Redux + Node + PostgreSQL
 
 Este repositorio contiene una aplicación web completa desarrollada como parte del challenge técnico para **CTIT**.
 El objetivo principal es demostrar manejo de **arquitectura frontend con Redux**, integración con **API en Node.js** y persistencia en **PostgreSQL**, siguiendo buenas prácticas y un flujo de datos claro.

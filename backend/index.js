@@ -14,12 +14,12 @@ const pool = new Pool({
   database: process.env.PGDATABASE,
 });
 
-// ---- Verificar conexión al iniciar ----
-pool.query("SELECT 1")
-  .then(() => console.log("✅ Conexión a PostgreSQL OK"))
-  .catch(err => console.error("❌ Error conectando a Postgres:", err.message));
 
-// ---- Helpers ----
+pool.query("SELECT 1")
+  .then(() => console.log("Conexión a PostgreSQL OK"))
+  .catch(err => console.error("Error conectando a Postgres:", err.message));
+
+
 function sendJson(res, status, data) {
   const body = JSON.stringify(data);
 
@@ -57,18 +57,16 @@ async function readBodyJson(req) {
   });
 }
 
-// ---- Servidor HTTP ----
+
 const server = http.createServer(async (req, res) => {
-  // CORS preflight
+  
   if (req.method === "OPTIONS") return sendNoContent(res, 204);
 
   const url = new URL(req.url, `http://${req.headers.host}`);
   const path = url.pathname;
 
   try {
-    // =========================
-    // GET /posts  -> listar todos
-    // =========================
+    
     if (req.method === "GET" && path === "/posts") {
       const result = await pool.query(
         `SELECT id, nombre, descripcion 
@@ -85,9 +83,7 @@ const server = http.createServer(async (req, res) => {
       return sendJson(res, 200, posts);
     }
 
-    // =========================
-    // POST /posts -> crear post
-    // =========================
+    
     if (req.method === "POST" && path === "/posts") {
       const body = await readBodyJson(req);
 
@@ -116,9 +112,6 @@ const server = http.createServer(async (req, res) => {
       });
     }
 
-    // =========================
-    // DELETE /posts/:id
-    // =========================
     const matchDelete = path.match(/^\/posts\/(\d+)$/);
 
     if (req.method === "DELETE" && matchDelete) {
@@ -144,7 +137,6 @@ const server = http.createServer(async (req, res) => {
       });
     }
 
-    // Ruta no encontrada
     return sendJson(res, 404, { message: "Ruta no encontrada" });
 
   } catch (err) {
@@ -154,5 +146,5 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`🚀 API lista en http://localhost:${PORT}`);
+  console.log(`API lista en http://localhost:${PORT}`);
 });
